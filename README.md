@@ -112,6 +112,9 @@ console.log(person.middleName || 'n/a');
 console.log(person.lastName);
 ```
 
+- Null-Coalescing-Operator `??`
+  - Verhält sich wie `||`, greift aber nur bei `null` und `undefined`, das heißt, er ignoriert die Falsy Values
+
 ### Vergleichsoperatoren
 
 - `==` / `!=`
@@ -159,3 +162,39 @@ const add = function (left, right) {
 
 const sum = add(23, 42); // => undefined
 ```
+
+## Arrays
+
+```
+(defvar primes '(2 3 5 7 11))
+(append primes 13)
+
+(defvar items '(
+  23
+  "Elon"
+  nil
+  (lambda (x y) (+ x y))
+  ()
+))
+```
+
+```javascript
+const primes = [ 2, 3, 5, 7, 11 ];
+typeof primes // => object
+```
+
+## Funktionen
+
+- Function statements vs function expressions
+  - Function statements werden am Anfang von der Laufzeitumgebung eingesammelt und können daher aufgerufen werden, bevor sie definiert werden
+  - Function expressions lassen sich aber überall verwenden (auch in Objekten), function statements hingegen nicht
+
+- Parameter vs Argumente
+  - Optionale Parameter (`z = 0`)
+  - Rest-Operator (`...z`)
+  - Parameter-Objekte
+
+- Rückgabewerte
+  - `return`
+  - `return` ohne Wert gibt implizit `undefined` zurück
+  - Ohne `return` wird ebenfalls implizit `undefined` zurückgegeben
