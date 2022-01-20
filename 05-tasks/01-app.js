@@ -1,11 +1,27 @@
 'use strict';
 
-// Ausführen
-//   $ node ./05-tasks/01-app.js
-
 const createStack = function () {
-  // TODO: Stack implementieren und Anwendung korrekt ans Laufen bringen,
-  //       wobei die interne Datenstruktur privat sein sollte.
+  const values = [];
+
+  const isEmpty = function () {
+    return values.length === 0;
+  };
+
+  const put = function (value) {
+    values.unshift(value);
+  };
+
+  const top = function () {
+    return values[0];
+  };
+
+  const get = function () {
+    return values.shift();
+  };
+
+  const stack = { isEmpty, put, top, get };
+
+  return stack;
 };
 
 const stack = createStack();
