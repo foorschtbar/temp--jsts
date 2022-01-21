@@ -1,8 +1,55 @@
 'use strict';
 
-// TODO
-// - Queue-Klasse
-// - logify-Funktion (für Teilaufgabe 3)
+class Queue {
+  #values
+
+  constructor (values = []) {
+    this.#values = values;
+  }
+
+  isEmpty () {
+    return this.#values.length === 0;
+  }
+
+  enqueue (value) {
+    this.#values.push(value);
+  }
+
+  dequeue () {
+    return this.#values.shift();
+  }
+
+  front () {
+    return this.#values[0];
+  }
+
+  clone () {
+    return new Queue([ ...this.#values ]);
+  }
+}
+
+const logify = function (obj) {
+  const prototype = Object.getPrototypeOf(obj);
+  const properties = Object.getOwnPropertyDescriptors(prototype);
+
+  const functions = Object.entries(properties).
+    filter(([ propertyName, propertyDescriptor ]) =>
+      typeof propertyDescriptor.value === 'function' &&
+      propertyName !== 'constructor'
+    );
+
+  for (const [ functionName, functionDescriptor ] of functions) {
+    const originalFunction = functionDescriptor.value;
+
+    prototype[functionName] = function (...args) {
+      console.log(`${functionName}(${args}) wurde aufgerufen`);
+
+      const returnValue = originalFunction.apply(obj, args);
+
+      return returnValue;
+    };
+  }
+};
 
 // --- 1: Klasse implementieren ---
 
@@ -54,3 +101,9 @@ console.log(queue.isEmpty());             // => false
 
 queue.enqueue(23);
 // Zusätzlich: "enqueue(23) wurde aufgerufen" auf der Konsole
+
+console.log(queue.dequeue());            // => 42
+// Zusätzlich: "dequeue() wurde aufgerufen" auf der Konsole
+
+console.log(queue.dequeue());            // => 23
+// Zusätzlich: "dequeue() wurde aufgerufen" auf der Konsole
