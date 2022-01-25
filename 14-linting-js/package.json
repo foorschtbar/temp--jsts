@@ -1,0 +1,11 @@
+{
+  "name": "linting",
+  "version": "0.0.1",
+  "devDependencies": {
+    "eslint": "8.7.0",
+    "eslint-config-es": "4.1.0"
+  },
+  "scripts": {
+    "lint": "npx eslint app.js"
+  }
+}

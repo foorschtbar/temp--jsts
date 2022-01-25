@@ -1,0 +1,13 @@
+{
+  "name": "linting",
+  "version": "0.0.1",
+  "devDependencies": {
+    "eslint": "8.7.0",
+    "eslint-config-es": "4.1.0",
+    "ts-node": "10.4.0",
+    "typescript": "4.5.5"
+  },
+  "scripts": {
+    "lint": "npx eslint ./lib/**/*.ts"
+  }
+}

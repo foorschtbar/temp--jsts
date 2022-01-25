@@ -1,0 +1,12 @@
+{
+  "name": "network-monitor",
+  "version": "0.0.1",
+  "dependencies": {
+    "ts-node": "10.4.0",
+    "typescript": "4.5.5"
+  },
+  "scripts": {
+    "build": "npx tsc",
+    "dev": "npx ts-node lib/app.ts"
+  }
+}
